@@ -2,17 +2,18 @@
 # this is your module manifest and used by Titanium
 # during compilation, packaging, distribution, etc.
 #
-version: 3.0.0
-apiversion: 4
-architectures: arm64-v8a armeabi-v7a x86 x86_64
+version: 2.0
+apiversion: 2
+architectures: arm64-v8a armeabi-v7a x86
 description: My module
 author: Marcel Pociot
 license: MIT
 copyright: Marcel Pociot
+
 
 # these should not be edited
 name: webviewfragment
 moduleid: de.marcelpociot.webviewfragment
 guid: ce49d91a-9a85-4608-bb37-0dd75a6d4dff
 platform: android
-minsdk: 9.0.0
+minsdk: 9.3.2.GA

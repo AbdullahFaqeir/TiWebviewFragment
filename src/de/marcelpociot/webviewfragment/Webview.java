@@ -2,13 +2,17 @@ package de.marcelpociot.webviewfragment;
 
 import org.appcelerator.kroll.KrollDict;
 import org.appcelerator.titanium.proxy.TiViewProxy;
-import org.appcelerator.titanium.util.Log;
+import android.util.Log;
 import org.appcelerator.titanium.util.TiRHelper;
 import org.appcelerator.titanium.util.TiRHelper.ResourceNotFoundException;
 import org.appcelerator.titanium.view.TiUIView;
+import org.appcelerator.titanium.TiApplication;
+import android.app.Activity;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,6 +52,7 @@ public class Webview extends TiUIView
 	}
 	
 	public static class ContentWrapperFragment extends Fragment {
+
 		View mContentView;
 
 		public ContentWrapperFragment(View cv) {
@@ -86,8 +91,11 @@ public class Webview extends TiUIView
 		View contentView = viewProxy.getOrCreateView().getOuterView();
 		Fragment fragment = new ContentWrapperFragment(contentView);
 
-		FragmentManager fragmentManager = (proxy.getActivity()).getFragmentManager();
-		fragmentManager.beginTransaction().replace(id_content_frame, fragment).commit();
+		Activity activity = TiApplication.getAppCurrentActivity();
+
+		AppCompatActivity appCompatActivity = (AppCompatActivity) activity;
+
+		appCompatActivity.getSupportFragmentManager().beginTransaction().replace(id_content_frame, fragment).commit();
 
 		this.centerView = viewProxy;
 	}

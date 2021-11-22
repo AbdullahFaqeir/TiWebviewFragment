@@ -12,7 +12,7 @@ import org.appcelerator.kroll.KrollModule;
 import org.appcelerator.kroll.annotations.Kroll;
 
 import org.appcelerator.titanium.TiApplication;
-import org.appcelerator.kroll.common.Log;
+import android.util.Log;
 
 @Kroll.module(name="Webviewfragment", id="de.marcelpociot.webviewfragment")
 public class WebviewfragmentModule extends KrollModule
